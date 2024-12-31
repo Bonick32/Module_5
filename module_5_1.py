@@ -29,7 +29,7 @@ class Flower(Plant):
 class Fruit(Plant):
     def __init__(self, name):
         super().__init__(name)
-        self.edible = True  # Переопределяем edible на True
+        self.edible = True
 
 a1 = Predator('Волк с Уолл-Стрит')
 a2 = Mammal('Хатико')
