@@ -36,15 +36,22 @@ class Animal:
 
 class Bird(Animal):
     beak = True
+
+    def __init__(self, speed):
+        super().__init__(speed)
+
     def lay_eggs(self):
         print(f"Here are(is) {random.randint(1,4)} eggs for you")
 
 class AquaticAnimal(Animal):
     _DEGREE_OF_DANGER = 3
+
+    def __init__(self, speed):
+        super().__init__(speed)
+
     def dive_in(self, dz):  # написано так, как я понял из ТЗ
         dz = abs(dz)
         new_z = self._cords[2] - dz
-
         if new_z >= 0:
             self._cords[2] = new_z
             self.speed /= 2
@@ -59,6 +66,8 @@ class AquaticAnimal(Animal):
 
 class PoisonousAnimal(Animal):
     _DEGREE_OF_DANGER = 8
+    def __init__(self, speed):
+        super().__init__(speed)
 
 class Duckbill(PoisonousAnimal, AquaticAnimal, Bird):
     sound = "Click-click-click"
