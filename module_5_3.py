@@ -59,10 +59,14 @@ class AquaticAnimal(Animal):
             print("It's too deep, i can't dive :(, no changes made")
 
     def dive_in0(self, dz): # как будто это требуется от задания, потому что как еще добиться 0 я не знаю))
-        dz = abs(dz)
-        # Устанавливаем координату z в 0
-        self._cords[2] = 0
         self.speed /= 2
+        dz = abs(dz) * self.speed
+        new_z = self._cords[2] - dz
+        if new_z >= 0:
+            self._cords[2] = int(new_z)
+        else:
+            print("It's too deep, i can't dive :(, no changes made")
+
 
 class PoisonousAnimal(Animal):
     _DEGREE_OF_DANGER = 8
@@ -86,7 +90,7 @@ db.attack()
 db.move(1, 2, 3)
 db.get_cords()
 
-db.dive_in(6)
+db.dive_in0(6)
 db.get_cords()
 
 db.lay_eggs()
